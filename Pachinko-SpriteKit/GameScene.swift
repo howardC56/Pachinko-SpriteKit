@@ -78,13 +78,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 addChild(box)
             } else {
                 let ball = SKSpriteNode(imageNamed: "\(ballColors.randomElement() ?? "ballRed")")
-        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
-        ball.physicsBody?.restitution = 0.4
-        ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
-        ball.position = location
-        ball.name = "ball"
-        addChild(ball)
-        }
+                ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
+                ball.physicsBody?.restitution = 0.4
+                ball.physicsBody?.velocity = CGVector(dx: 1, dy: 0.3)
+                ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
+                ball.position = CGPoint(x: location.x, y: self.size.height)
+                ball.name = "ball"
+                addChild(ball)
+            }
         }
     }
         
